@@ -13,10 +13,6 @@
     </div>
     <div id="columns">
       <div id="side">
-         <div id="cart">
-           <%= render @cart %>
-         </div>
-
         <ul>
           <li><%= link_to 'Strona Główna', store_path %></li>
           <li><%= link_to 'Twój koszyk', current_cart %></li>

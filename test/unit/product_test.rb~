@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
@@ -14,9 +16,10 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors[:image_url].any?
   end
 
-  test 'cena musi byc wieksza od zera'  do
-    product = Product.new title: "Moja ksiazka", description: "Lorem ipsum dodle", image_url: "tet.jpg"
-
+  test "Cena musi być większa od zera" do
+    product = Product.new(title:       "Moja książka",
+                          description: "Lorem ipsum dolor",
+                          image_url:   "zzz.jpg")
     product.price = -1
     assert product.invalid?
 
@@ -28,9 +31,11 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   def new_product(image_url)
-    Product.new(title: "Moja ksiazka", description: "opis", price: 1,
-    image_url: image_url)
+    Product.new(title: "Moja ksika", description: "opis", price: 1, image_url: image_url)
   end
+
+
+
   
   test 'url moga prowadzic tylko do obrazkow' do
     ok = %w{ obr.gif obr.jpg obr.png obr.JPG obr.Jpg
@@ -38,11 +43,12 @@ class ProductTest < ActiveSupport::TestCase
     bad = %w{ obr.doc obr.gif/more obr.gif.more}
 
   ok.each do |name|
-  assert new_product(name).valid?
+  	assert new_product(name).valid?
   end
 
   bad.each do |name|
-  assert new_product(name).invalid?
+    assert new_product(name).invalid?
   end
+end
 
 end

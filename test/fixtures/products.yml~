@@ -13,7 +13,7 @@ two:
   price: 9.99
 
 moja_ksiazka:
-  title: Wałkowanie ameryki
+  title: Moja ksiazka
   description: Lorem ipsum dolor i tak dalej Lorem ipsum dolor i tak 
   price: 49.50
   image_url: "http://ksiegarnia.bankier.pl//s/cover/small/1868.jpg"
